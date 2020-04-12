@@ -10,6 +10,8 @@ resources:
 
 variables:
   tag: '$(Build.BuildId)'
+  imageName: 'pipelines-flask-docker'
+
 
 stages:
 - stage: Build
@@ -27,3 +29,8 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/app/Dockerfile'
         tags: |
           $(tag)
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'Python Docker_Hub connection'
+        repository: $(imageName)
+        command: 'push'
