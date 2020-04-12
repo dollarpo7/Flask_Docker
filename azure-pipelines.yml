@@ -10,7 +10,7 @@ resources:
 
 variables:
   tag: '$(Build.BuildId)'
-  imageName: 'pipelines-flask-docker'
+  imageName: 'dollarpo7/pipelines-flask-docker'
 
 
 stages:
