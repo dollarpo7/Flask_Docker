@@ -12,7 +12,6 @@ variables:
   tag: '$(Build.BuildId)'
   imageName: 'dollarpo7/pipelines-flask-docker'
 
-
 stages:
 - stage: Build
   displayName: Build image
@@ -26,6 +25,7 @@ stages:
       displayName: Build an image
       inputs:
         command: build
+        repository: $(imageName)
         dockerfile: '$(Build.SourcesDirectory)/app/Dockerfile'
         tags: |
           $(tag)
